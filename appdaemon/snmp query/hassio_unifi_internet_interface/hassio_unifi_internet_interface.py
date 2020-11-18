@@ -103,10 +103,12 @@ class hassio_unifi_internet_interface(hass.Hass):
             self.log(DownloadSpeedPPPoE, level = 'DEBUG')
 
             self.set_state(self.args["ha_upload_entity"], 
-                                state="{}".format(UploadSpeedPPPoE))
+                                state="{}".format(UploadSpeedPPPoE), 
+                                attributes = {"retrieve_date": data_time})
 
             self.set_state(self.args["ha_download_entity"], 
-                                state="{}".format(DownloadSpeedPPPoE))
+                                state="{}".format(DownloadSpeedPPPoE), 
+                                attributes = {"retrieve_date": data_time})
 
           except Exception as inst:
             self.log(inst, level = 'ERROR')
