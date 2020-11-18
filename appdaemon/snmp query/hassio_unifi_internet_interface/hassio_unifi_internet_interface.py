@@ -102,6 +102,8 @@ class hassio_unifi_internet_interface(hass.Hass):
             self.log(UploadSpeedPPPoE, level = 'DEBUG')
             self.log(DownloadSpeedPPPoE, level = 'DEBUG')
 
+            data_time = datetime.now()
+
             self.set_state(self.args["ha_upload_entity"], 
                                 state="{}".format(UploadSpeedPPPoE), 
                                 attributes = {"retrieve_date": data_time})
