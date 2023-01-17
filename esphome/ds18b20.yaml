@@ -1,0 +1,85 @@
+substitutions:
+  devicename: ds18b20
+  upper_devicename: DS18B20
+  
+esphome:
+  name: $devicename
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_IOT_ssid
+  password: !secret wifi_IOT_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Ds18b20 Fallback Hotspot"
+    password: "m7aVZY2A47cF"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Web server.
+web_server:
+  port: 80
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Enable Home Assistant API
+api:
+  password: !secret ha_API_Password
+
+ota:
+switch:
+  # Switch to restart the doorbell.
+  - platform: restart
+    name: ${upper_devicename} Restart
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: ${upper_devicename} ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: ${upper_devicename} IP
+    ssid:
+      name: ${upper_devicename} SSID
+  # Expose Uptime information as sensors in Days Hours Minutes Seconds.
+  - platform: template
+    name: ${upper_devicename} Uptime
+    lambda: |
+      int seconds = (id(uptime_sec).state);
+      int days = seconds / (24 * 3600);
+      seconds = seconds % (24 * 3600); 
+      int hours = seconds / 3600;
+      seconds = seconds % 3600;
+      int minutes = seconds /  60;
+      seconds = seconds % 60;
+      return { (String(days) +"d " + String(hours) +"h " + String(minutes) +"m "+ String(seconds) +"s").c_str() };
+    icon: mdi:clock-start
+    update_interval: 113s
+
+dallas:
+  - pin: GPIO02
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    id: uptime_sec
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: ${upper_devicename} WiFi Signal
+    update_interval: 60s
+  - platform: dallas
+    address: 0xCC0218321AD3FF28
+    name: "Sensor01 Temperature" 
+  - platform: dallas
+    address: 0xA0021832193BFF28
+    name: "Sensor02 Temperature"
