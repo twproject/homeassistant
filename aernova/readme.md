@@ -44,6 +44,8 @@ Create a folder under config: modbus\climates and create a new yaml file
 
 
 If you want another graphics install from hacs simple-thermostat
+
+
 ![immagine](https://github.com/twproject/homeassistant/assets/7046065/e5c1ac5a-2970-4f24-9b8c-cb1d57c03fb8)
 
 
