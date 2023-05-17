@@ -42,3 +42,32 @@ Create a folder under config: modbus\climates and create a new yaml file
 
 ![immagine](https://github.com/twproject/homeassistant/assets/7046065/a5e0d883-b611-4cef-8f13-104bda7cb8b6)
 
+
+If you want another graphics install from hacs simple-thermostat
+![immagine](https://github.com/twproject/homeassistant/assets/7046065/e5c1ac5a-2970-4f24-9b8c-cb1d57c03fb8)
+
+
+```
+control:
+  _headings: false
+entity: climate.kitchen
+hide:
+  state: true
+  temperature: true
+icon:
+  cool: mdi:snowflake
+  heat: mdi:fire
+  'off': mdi:power
+sensors:
+  - attribute: current_temperature
+    entity: climate.kitchen
+    icon: mdi:home-thermometer-outline
+    name: Temperature
+  - entity: sensor.cucina_velocita_motore
+    icon: mdi:fan
+    name: Motor Speed
+step_size: 0.1
+type: custom:simple-thermostat
+```
+
+
