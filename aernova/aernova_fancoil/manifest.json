@@ -1,0 +1,12 @@
+{
+  "domain": "aernova_fancoil",
+  "name": "Aernova FanCoil System",
+  "codeowners": ["@twproject"],
+  "dependencies": ["modbus"],
+  "documentation": "https://www.home-assistant.io/integrations/modbus",
+  "iot_class": "local_polling",
+  "loggers": ["pymodbus"],
+  "quality_scale": "gold",
+  "requirements": ["pymodbus==3.1.3"],
+  "version": "2023.05.13.001"
+}
