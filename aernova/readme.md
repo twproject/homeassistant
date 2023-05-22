@@ -65,7 +65,7 @@ sensors:
     entity: climate.kitchen
     icon: mdi:home-thermometer-outline
     name: Temperature
-  - entity: sensor.cucina_velocita_motore
+  - entity: sensor.kitchen_motor_speed
     icon: mdi:fan
     name: Motor Speed
 step_size: 0.1
