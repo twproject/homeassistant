@@ -1,6 +1,6 @@
 Integrate Aernova FanCoils systems into HomeAssistant (https://www.aernovagroup.it/it/prodotti/ventilconvettori.html)
 
-Copy aernova_fanoil folder into custom_components and reboot Home Assistant
+Copy aernova_fancoil folder into custom_components and reboot Home Assistant
 
 Edit configuration.yaml
 
