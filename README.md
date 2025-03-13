@@ -1,2 +1,2 @@
 # homeassistant
-my home assistant develoments
+my home assistant developments
