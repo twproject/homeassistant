@@ -2,13 +2,6 @@
 
 Custom integration for reading the waste collection calendar from `app.sesaeste.it`.
 
-## Current known IDs
-
-For San Pietro Viminario, Via Europa:
-
-- Comune ID: `45`
-- Via ID: `4301`
-
 ## Installation
 
 Copy:
