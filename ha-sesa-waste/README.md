@@ -34,4 +34,4 @@ The calendar contains one all-day event for each collection day.
 
 ## Notes
 
-This integration uses the same HTTP endpoints used by the public SESA web app. It does not perform vulnerability scanning or intrusive testing.
+This integration uses the same HTTP endpoints used by the public SESA web app.
